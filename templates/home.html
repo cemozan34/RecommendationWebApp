@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block main %}
+  {% if session.logged_in %}
+    {% include '_get-recommendations.html' %}
+    <div class="container">
+      <hr class="mb-1"/>
+      <h1 class="text-center display-3 mt-1 mb-3">Books</h1>
+    </div>
+
+    {% with books=books.items, book_class="book-table--blue" %}
+      {% include "_book-table.html" %}
+    {% endwith %}
+
+<div class="mx-auto w-75 text-right mb-0 mb-sm-4 mt-4 pagin">
+  {% with items=books, path="/" %}
+    {% include "_pagination.html" %}
+  {% endwith %}
+</div>
+
+    {% include '_change-password.html' %}
+
+  {% else %}
+    <div class="text-center">
+      <h1>HOME PAGE</h1>
+    </div>
+  {% endif %}
+{% endblock %}
+{% block scripts %}
+  <script src="../static/toggle_fav.js"></script>
+{% endblock %}

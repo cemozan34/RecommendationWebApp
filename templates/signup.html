@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block main %}
+<div style="height: 100vh;" class="sign-up-page container-fluid p-0 m-0">
+  <div class="row h-100 m-0">
+    <div class="col-12 col-lg-6 p-0">
+      {% include '_signup-form.html' %}
+    </div>
+    <div class="col-sm-6 d-none d-lg-block p-0" style="background-color: #2028eb;">
+      {% include '_signup-landing.html' %}
+    </div>
+  </div>
+</div>
+{% endblock %}
